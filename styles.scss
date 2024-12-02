@@ -1,0 +1,101 @@
+@use "sass:color";
+@import url("https://fonts.cdnfonts.com/css/futura-pt");
+
+$body-bg: #f4f4f9;
+$font-family: "Futura PT", sans-serif;
+$header-bg: #000;
+$header-color: #fff;
+$text-color: #555;
+$image-border-radius: 8px;
+$logo-size: 100px;
+$primary-color: #ed332b;
+$hover-color: color.adjust(#EDE3CA, $lightness: -20%);
+$focus-color: color.adjust($primary-color, $lightness: 10%);
+$text-btn-color: #ffffff;
+
+// Сховати картинку в хедері на малих екранах
+@media screen and (max-width: 576px) {
+  #logo1 {
+    display: none;
+  }
+}
+
+// Функція для розрахунку адаптивного розміру шрифту
+@function fluid-font-size($min-size, $max-size, $min-vw, $max-vw) {
+  @return calc(#{$min-size}px + (#{$max-size} - #{$min-size}) * ((100vw - #{$min-vw}px) / (#{$max-vw} - #{$min-vw})));
+}
+@mixin responsive-font($property, $min-size, $max-size, $min-vw: 320, $max-vw: 1200) {
+  #{$property}: $min-size;
+  @media screen and (min-width: $min-vw) {
+    #{$property}: fluid-font-size($min-size, $max-size, $min-vw, $max-vw);
+  }
+  @media screen and (min-width: $max-vw) {
+    #{$property}: $max-size;
+  }
+}
+
+h1 {
+  @include responsive-font(font-size, 24, 48);
+}
+h2 {
+  @include responsive-font(font-size, 20, 36);
+}
+p {
+  @include responsive-font(font-size, 16, 20);
+}
+
+body {
+  background-color: $body-bg;
+  font-family: $font-family;
+}
+
+.header {
+  padding-top: 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+}
+
+.description {
+  p {
+    color: $text-color;
+  }
+}
+
+.guitar-image img {
+  border-radius: $image-border-radius;
+}
+
+#logo1 {
+  width: $logo-size;
+  height: $logo-size;
+  border-radius: 50%;
+}
+
+.btn-danger {
+  background-color: $primary-color;
+  color: $text-btn-color;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+
+  &:focus {
+    background-color: $focus-color;
+    outline: 2px solid $focus-color;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}

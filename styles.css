@@ -1,0 +1,100 @@
+@import url("https://fonts.cdnfonts.com/css/futura-pt");
+@media screen and (max-width: 576px) {
+  #logo1 {
+    display: none;
+  }
+}
+h1 {
+  font-size: 24;
+}
+@media screen and (min-width: 320) {
+  h1 {
+    font-size: calc(24px + (48 - 24) * (100vw - 320px) / (1200 - 320));
+  }
+}
+@media screen and (min-width: 1200) {
+  h1 {
+    font-size: 48;
+  }
+}
+
+h2 {
+  font-size: 20;
+}
+@media screen and (min-width: 320) {
+  h2 {
+    font-size: calc(20px + (36 - 20) * (100vw - 320px) / (1200 - 320));
+  }
+}
+@media screen and (min-width: 1200) {
+  h2 {
+    font-size: 36;
+  }
+}
+
+p {
+  font-size: 16;
+}
+@media screen and (min-width: 320) {
+  p {
+    font-size: calc(16px + (20 - 16) * (100vw - 320px) / (1200 - 320));
+  }
+}
+@media screen and (min-width: 1200) {
+  p {
+    font-size: 20;
+  }
+}
+
+body {
+  background-color: #f4f4f9;
+  font-family: "Futura PT", sans-serif;
+}
+
+.header {
+  padding-top: 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+}
+
+.description p {
+  color: #555;
+}
+
+.guitar-image img {
+  border-radius: 8px;
+}
+
+#logo1 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.btn-danger {
+  background-color: #ed332b;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+.btn-danger:hover {
+  background-color: rgb(211.1408450704, 186.7746478873, 125.8591549296);
+}
+.btn-danger:focus {
+  background-color: rgb(240.9913043478, 96.2347826087, 90.0086956522);
+  outline: 2px solid rgb(240.9913043478, 96.2347826087, 90.0086956522);
+}
+.btn-danger:active {
+  transform: scale(0.95);
+}
+
+/*# sourceMappingURL=styles.css.map */
